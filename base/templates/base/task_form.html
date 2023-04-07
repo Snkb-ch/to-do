@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% load myfilters %}
+{% block content %}
+<div class="header-bar">
+    <a href="{{request.META.HTTP_REFERER}}">&#8592; Back</a>
+</div>
+
+<form class="TaskForm" method="post" >
+
+
+
+
+  <div class="input-control ">
+    {% csrf_token %}
+
+<p>{{ form.title.label}}</p>
+      <p>{{ form.title|addclass:'form-control' }}</p>
+      <p> {{ form.Deadline.label}}</p>
+      <p>{{ form.Deadline|addclass:'form-control' }}</p>
+      <p>{{ form.description.label}}</p>
+      <p>{{ form.description|addclass:'form-control' }}</p>
+      <p> {{ form.priority.label}}</p>
+      <p>{{ form.priority}}</p>
+      <p>  {{ form.complete.label}}</p>
+      <p>{{ form.complete }}</p>
+
+
+  </div>
+
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock content %}
+
